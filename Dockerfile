@@ -9,7 +9,7 @@ ARG LOCALTONET_TOKEN
 ENV LOCALTONET_TOKEN=${LOCALTONET_TOKEN}
 RUN wget -O localtonet.zip https://localtonet.com/download/localtonet-linux-x64.zip
 RUN unzip localtonet.zip
-RUN echo "./localtonet authtoken ${LOCALTONET_TOKEN} &&" >>/start
+RUN echo "localtonet authtoken ${LOCALTONET_TOKEN} &&" >>/start
 RUN mkdir /run/sshd
 RUN echo '/usr/sbin/sshd -D' >>/start
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
